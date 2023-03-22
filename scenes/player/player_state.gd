@@ -15,3 +15,6 @@ func _exit_state():
 
 func _process_state(delta: float) -> void:
 	pass
+
+func _get_animation_properties() -> Dictionary:
+	return {}

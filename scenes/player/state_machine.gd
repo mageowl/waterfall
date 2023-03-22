@@ -7,10 +7,13 @@ func init_states(player: Player):
 		if child is PlayerState:
 			print("loox")
 			child.player = player
-			child.change_stated.connect(change_state)
+			child.changed_state.connect(change_state)
 
 func process_state(delta):
 	current_state._process_state(delta)
+
+func get_animation_properties() -> Dictionary:
+	return current_state._get_animation_properties()
 
 func change_state(state_name: String):
 	current_state._exit_state()

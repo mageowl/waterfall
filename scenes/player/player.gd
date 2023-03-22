@@ -13,10 +13,12 @@ const FRICTION = 1.0
 const FRICTION_AIR = 0.7
 
 @onready var state_machine: PlayerStateMachine = $States
+@onready var player_sprite = $PlayerSprite
 
 func _ready():
 	state_machine.init_states(self)
 
 func _physics_process(delta: float):
 	state_machine.process_state(delta)
+	player_sprite.animate(state_machine.get_animation_properties())
 	move_and_slide()
