@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxvonor4oolcq"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_b783s"]
+[ext_resource type="PackedScene" uid="uid://c661rjtxrrivr" path="res://scenes/player/sprite/player_sprite.tscn" id="1_guivv"]
+[ext_resource type="Script" path="res://scenes/player/state_machine.gd" id="3_yy862"]
+[ext_resource type="Script" path="res://scenes/player/states/idle.gd" id="4_qxhyh"]
+[ext_resource type="Script" path="res://scenes/player/states/walk.gd" id="5_6ghmd"]
+[ext_resource type="Script" path="res://scenes/player/states/fall.gd" id="6_c66bs"]
+[ext_resource type="Script" path="res://scenes/player/states/jump.gd" id="7_rw6bk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ckxlp"]
+radius = 3.0
+height = 7.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_b783s")
+
+[node name="PlayerSprite" parent="." instance=ExtResource("1_guivv")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.5)
+shape = SubResource("CapsuleShape2D_ckxlp")
+debug_color = Color(0.0117647, 0.509804, 0.243137, 0.419608)
+
+[node name="States" type="Node" parent="."]
+script = ExtResource("3_yy862")
+
+[node name="Idle" type="Node" parent="States"]
+script = ExtResource("4_qxhyh")
+
+[node name="Walk" type="Node" parent="States"]
+script = ExtResource("5_6ghmd")
+
+[node name="Fall" type="Node" parent="States"]
+script = ExtResource("6_c66bs")
+
+[node name="Jump" type="Node" parent="States"]
+script = ExtResource("7_rw6bk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)

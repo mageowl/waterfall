@@ -1,0 +1,284 @@
+[gd_scene load_steps=19 format=3 uid="uid://c661rjtxrrivr"]
+
+[ext_resource type="Script" path="res://scenes/player/sprite/player_sprite.gd" id="1_h0s1f"]
+[ext_resource type="Texture2D" uid="uid://blk72k0g842gb" path="res://scenes/player/sprite/head-outline.png" id="2_yqh41"]
+[ext_resource type="Texture2D" uid="uid://dvaauwl0ots8p" path="res://scenes/player/sprite/leg.png" id="3_nt4rs"]
+[ext_resource type="Texture2D" uid="uid://b4ygkgesra4cf" path="res://scenes/player/sprite/head.png" id="4_qg2qf"]
+
+[sub_resource type="Animation" id="Animation_5j3jb"]
+resource_name = "Air"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/LegR:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.22173, -1.309]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/LegL:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.22173, 1.309]
+}
+
+[sub_resource type="Animation" id="Animation_4pc8m"]
+resource_name = "Crouch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/HeadOutline:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Head:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_5b54x"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/LegR:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/LegL:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/HeadOutline:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/Head:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -6)]
+}
+
+[sub_resource type="Animation" id="Animation_wbv63"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/LegL:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/LegR:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/HeadOutline:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/Head:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -6)]
+}
+
+[sub_resource type="Animation" id="Animation_q75h4"]
+resource_name = "Walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/LegL:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.523599, -0.523599]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/LegR:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.523599, 0.523599]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0nkb0"]
+_data = {
+"Air": SubResource("Animation_5j3jb"),
+"Crouch": SubResource("Animation_4pc8m"),
+"Idle": SubResource("Animation_5b54x"),
+"RESET": SubResource("Animation_wbv63"),
+"Walk": SubResource("Animation_q75h4")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5gl6t"]
+animation = &"Air"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r6wxh"]
+animation = &"Idle"
+
+[sub_resource type="Curve" id="Curve_8yfir"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_3i8u0"]
+xfade_time = 0.2
+xfade_curve = SubResource("Curve_8yfir")
+input_0/name = "yes"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "no"
+input_1/auto_advance = false
+input_1/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yb0yg"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_etjnx"]
+filters = ["Sprite/LegL:rotation", "Sprite/LegR:rotation"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_6u4ni"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mcn1e"]
+graph_offset = Vector2(-658.622, -31.0509)
+nodes/Air/node = SubResource("AnimationNodeAnimation_5gl6t")
+nodes/Air/position = Vector2(720, 0)
+nodes/Idle/node = SubResource("AnimationNodeAnimation_r6wxh")
+nodes/Idle/position = Vector2(360, 160)
+nodes/InAir/node = SubResource("AnimationNodeTransition_3i8u0")
+nodes/InAir/position = Vector2(980, 10)
+nodes/Walk/node = SubResource("AnimationNodeAnimation_yb0yg")
+nodes/Walk/position = Vector2(230, 300)
+nodes/WalkBlend/node = SubResource("AnimationNodeBlend2_etjnx")
+nodes/WalkBlend/position = Vector2(730, 150)
+nodes/WalkScale/node = SubResource("AnimationNodeTimeScale_6u4ni")
+nodes/WalkScale/position = Vector2(467, 303.5)
+nodes/output/position = Vector2(1240, 50)
+node_connections = [&"output", 0, &"InAir", &"InAir", 0, &"Air", &"InAir", 1, &"WalkBlend", &"WalkBlend", 0, &"Idle", &"WalkBlend", 1, &"WalkScale", &"WalkScale", 0, &"Walk"]
+
+[node name="PlayerSprite" type="Node2D"]
+script = ExtResource("1_h0s1f")
+
+[node name="Sprite" type="CanvasGroup" parent="."]
+
+[node name="HeadOutline" type="Sprite2D" parent="Sprite"]
+position = Vector2(0, -6)
+texture = ExtResource("2_yqh41")
+
+[node name="LegR" type="Sprite2D" parent="Sprite"]
+position = Vector2(1.5, -2.5)
+texture = ExtResource("3_nt4rs")
+offset = Vector2(0, 1.5)
+
+[node name="LegL" type="Sprite2D" parent="Sprite"]
+position = Vector2(-1.5, -2.5)
+texture = ExtResource("3_nt4rs")
+offset = Vector2(0, 1.5)
+
+[node name="Head" type="Sprite2D" parent="Sprite"]
+position = Vector2(0, -6)
+texture = ExtResource("4_qg2qf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0nkb0")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_mcn1e")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/InAir/current_state = "no"
+parameters/InAir/transition_request = ""
+parameters/InAir/current_index = 1
+parameters/WalkBlend/blend_amount = 0.0
+parameters/WalkScale/scale = 1.0
