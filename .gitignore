@@ -13,3 +13,4 @@ data_*/
 
 # Apple be like
 **/.DS_Store
+.godot/editor/editor_layout.cfg
