@@ -227,7 +227,6 @@ animation = &"Walk"
 filters = ["Sprite/LegL:rotation", "Sprite/LegR:rotation"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mcn1e"]
-graph_offset = Vector2(-86.9011, -66.74)
 nodes/Air/node = SubResource("AnimationNodeAnimation_5gl6t")
 nodes/Air/position = Vector2(720, 0)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_r6wxh")
@@ -273,7 +272,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_mcn1e")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/InAir/current_state = "yes"
+parameters/InAir/current_state = "no"
 parameters/InAir/transition_request = ""
-parameters/InAir/current_index = 0
+parameters/InAir/current_index = 1
 parameters/WalkBlend/blend_amount = "no"

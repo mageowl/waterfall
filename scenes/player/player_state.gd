@@ -7,7 +7,7 @@ var player: Player
 func change_state(state: String):
 	changed_state.emit(state)
 
-func _enter_state():
+func _enter_state(from: String):
 	pass
 
 func _exit_state():

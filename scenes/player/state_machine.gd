@@ -1,6 +1,7 @@
 class_name PlayerStateMachine extends Node
 
 @onready var current_state : PlayerState = get_children()[0]
+@onready var current_state_id = current_state.name
 
 func init_states(player: Player):
 	for child in get_children():
@@ -18,4 +19,5 @@ func get_animation_properties() -> Dictionary:
 func change_state(state_name: String):
 	current_state._exit_state()
 	current_state = get_node(state_name)
-	current_state._enter_state()
+	current_state._enter_state(current_state_id)
+	current_state_id = state_name
