@@ -3,6 +3,7 @@
 .godot/shader_cache
 export.cfg
 export_presets.cfg
+.godot/editor/editor_layout.cfg
 
 # Imported translations (automatically generated from CSV files)
 *.translation
@@ -13,4 +14,3 @@ data_*/
 
 # Apple be like
 **/.DS_Store
-.godot/editor/editor_layout.cfg
