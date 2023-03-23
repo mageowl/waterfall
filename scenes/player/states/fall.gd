@@ -35,7 +35,8 @@ func _process_state(delta):
 
 func _get_animation_properties():
 	var result = {
-		"in_air": true
+		"in_air": true,
+		"is_crouching": false
 	}
 	if player.velocity.x != 0: result.flip_h = true if player.velocity.x < 0 else false
 	

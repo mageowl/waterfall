@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 
 const SPEED = 150.0
+const CROUCH_SPEED = 50.0
 const JUMP_VELOCITY = 300.0
 
 const CYOTE_TIME = 6

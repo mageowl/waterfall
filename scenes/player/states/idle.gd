@@ -5,6 +5,10 @@ func _process_state(delta):
 	if Input.is_action_just_pressed("jump"):
 		change_state("Jump")
 	
+#	Handle Crouch button
+	if Input.is_action_pressed("crouch"):
+		change_state("Crouch")
+	
 	if not player.is_on_floor():
 		change_state("Fall")
 	
@@ -16,5 +20,6 @@ func _process_state(delta):
 
 func _get_animation_properties():
 	return {
-		"in_air": false
+		"in_air": false,
+		"is_crouching": false
 	}

@@ -6,7 +6,6 @@ class_name PlayerStateMachine extends Node
 func init_states(player: Player):
 	for child in get_children():
 		if child is PlayerState:
-			print("loox")
 			child.player = player
 			child.changed_state.connect(change_state)
 
