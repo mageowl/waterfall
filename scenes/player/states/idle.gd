@@ -9,6 +9,11 @@ func _process_state(delta):
 	if Input.is_action_pressed("crouch"):
 		change_state("Crouch")
 	
+#	Handle Dive
+	player.can_dive = true
+	if Input.is_action_pressed("dive"):
+		change_state("Dive")
+	
 	if not player.is_on_floor():
 		change_state("Fall")
 	
@@ -21,5 +26,6 @@ func _process_state(delta):
 func _get_animation_properties():
 	return {
 		"in_air": false,
-		"is_crouching": false
+		"is_crouching": false,
+		"diving": false
 	}

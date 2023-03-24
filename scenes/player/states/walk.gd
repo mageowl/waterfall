@@ -11,6 +11,11 @@ func _process_state(delta: float):
 	if Input.is_action_pressed("crouch"):
 		change_state("Crouch")
 	
+#	Handle Dive
+	player.can_dive = true
+	if Input.is_action_pressed("dive"):
+		change_state("Dive")
+	
 #	Get walk direction
 	var direction = Input.get_axis("left", "right")
 	if direction == 0:

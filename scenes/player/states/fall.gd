@@ -26,6 +26,10 @@ func _process_state(delta):
 	
 	if buffer > 0: buffer -= 1
 	
+#	Handle Dive
+	if Input.is_action_pressed("dive") and player.can_dive:
+		change_state("Dive")
+	
 #	Get walk direction
 	var direction = Input.get_axis("left", "right")
 	if direction == 0:
@@ -36,7 +40,8 @@ func _process_state(delta):
 func _get_animation_properties():
 	var result = {
 		"in_air": true,
-		"is_crouching": false
+		"is_crouching": false,
+		"diving": false
 	}
 	if player.velocity.x != 0: result.flip_h = true if player.velocity.x < 0 else false
 	

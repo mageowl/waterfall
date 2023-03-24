@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxvonor4oolcq"]
+[gd_scene load_steps=11 format=3 uid="uid://bxvonor4oolcq"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_b783s"]
 [ext_resource type="PackedScene" uid="uid://c661rjtxrrivr" path="res://scenes/player/sprite/player_sprite.tscn" id="1_guivv"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/player/states/fall.gd" id="6_c66bs"]
 [ext_resource type="Script" path="res://scenes/player/states/jump.gd" id="7_rw6bk"]
 [ext_resource type="Script" path="res://scenes/player/states/crouch.gd" id="8_6xqqa"]
+[ext_resource type="Script" path="res://scenes/player/states/dive.gd" id="9_de8tx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ckxlp"]
 radius = 3.0
@@ -40,6 +41,9 @@ script = ExtResource("7_rw6bk")
 
 [node name="Crouch" type="Node" parent="States"]
 script = ExtResource("8_6xqqa")
+
+[node name="Dive" type="Node" parent="States"]
+script = ExtResource("9_de8tx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(6, 6)

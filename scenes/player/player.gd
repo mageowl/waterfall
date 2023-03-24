@@ -13,8 +13,12 @@ const GRAVITY_JUMP = 900
 const FRICTION = 1.0
 const FRICTION_AIR = 0.7
 
+const DIVE_SPEED = 250.0
+const DIVE_LENGTH = 2.0
+
 @onready var state_machine: PlayerStateMachine = $States
 @onready var player_sprite = $PlayerSprite
+var can_dive = true
 
 func _ready():
 	state_machine.init_states(self)

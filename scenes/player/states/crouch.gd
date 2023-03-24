@@ -12,6 +12,11 @@ func _process_state(delta):
 	if not Input.is_action_pressed("crouch"):
 		change_state("Idle")
 	
+#	Handle Dive
+	player.can_dive = true
+	if Input.is_action_pressed("dive"):
+		change_state("Dive")
+	
 	var direction = Input.get_axis("left", "right")
 	if direction != 0:
 		player.velocity.x = Player.CROUCH_SPEED * direction
