@@ -251,7 +251,7 @@ nodes/Walk/position = Vector2(60, 280)
 nodes/WalkBlend/node = SubResource("AnimationNodeBlend2_etjnx")
 nodes/WalkBlend/position = Vector2(420, 140)
 nodes/output/position = Vector2(1240, 50)
-node_connections = [&"output", 0, &"InAir", &"InAir", 0, &"Air", &"InAir", 1, &"CrouchBlend", &"WalkBlend", 0, &"Idle", &"WalkBlend", 1, &"Walk", &"CrouchBlend", 0, &"WalkBlend", &"CrouchBlend", 1, &"Crouch"]
+node_connections = [&"output", 0, &"InAir", &"CrouchBlend", 0, &"WalkBlend", &"CrouchBlend", 1, &"Crouch", &"InAir", 0, &"Air", &"InAir", 1, &"CrouchBlend", &"WalkBlend", 0, &"Idle", &"WalkBlend", 1, &"Walk"]
 
 [node name="PlayerSprite" type="Node2D"]
 script = ExtResource("1_h0s1f")

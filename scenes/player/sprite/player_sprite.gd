@@ -10,6 +10,7 @@ enum TRANSITION_BOOL {
 
 var prev_walk_scale := 0.0
 var prev_crouch = false
+var prev_dive = false
 
 # Called when the node enters the scene tree for the first time.
 func animate(properties: Dictionary):
@@ -21,10 +22,17 @@ func animate(properties: Dictionary):
 		prev_crouch = properties.is_crouching
 	if properties.has("flip_h"): sprite_group.scale.x = -1 if properties.flip_h else 1
 	if properties.has("is_diving"):
+		var target_rotation = 0
 		if properties.is_diving:
-			sprite_group.rotation = properties.dive_rotation
+			target_rotation = properties.dive_rotation
+		
+		if prev_dive != properties.is_diving:
+			var tween = create_tween()
+			tween.tween_property(sprite_group, "rotation", angle_distance(sprite_group.rotation, target_rotation), 0.2).as_relative()
+			tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		else:
-			sprite_group.rotation = 0
+			sprite_group.rotation = target_rotation
+		prev_dive = properties.is_diving
 	
 	var walk_scale = max(prev_walk_scale - 0.1, 0.0)
 	if properties.has("walk_scale"): walk_scale = properties.walk_scale
@@ -32,4 +40,8 @@ func animate(properties: Dictionary):
 	animation_tree.set("parameters/WalkBlend/blend_amount", walk_scale)
 	
 	prev_walk_scale = walk_scale
-	
+
+func angle_distance(from: float, to: float) -> float:
+	var difference = to - from
+	var anti_difference = to - (from - TAU)
+	return difference if absf(difference) < absf(anti_difference) else anti_difference
