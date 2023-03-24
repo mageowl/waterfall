@@ -16,7 +16,7 @@ func _process_state(delta):
 #	Get walk direction
 	var direction = Input.get_axis("left", "right")
 	if direction == 0:
-		player.velocity.x = move_toward(player.velocity.x, 0, Player.SPEED)
+		player.velocity.x = move_toward(player.velocity.x, 0, Player.SPEED * Player.FRICTION_AIR)
 	else:
 		player.velocity.x = Player.SPEED * direction
 
@@ -27,7 +27,7 @@ func _get_animation_properties():
 	var result = {
 		"in_air": true,
 		"is_crouching": false,
-		"diving": false
+		"is_diving": false
 	}
 	if player.velocity.x != 0: result.flip_h = true if player.velocity.x < 0 else false
 	

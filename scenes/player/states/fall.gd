@@ -41,7 +41,7 @@ func _get_animation_properties():
 	var result = {
 		"in_air": true,
 		"is_crouching": false,
-		"diving": false
+		"is_diving": false
 	}
 	if player.velocity.x != 0: result.flip_h = true if player.velocity.x < 0 else false
 	

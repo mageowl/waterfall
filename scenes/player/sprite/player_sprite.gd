@@ -20,6 +20,11 @@ func animate(properties: Dictionary):
 		tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		prev_crouch = properties.is_crouching
 	if properties.has("flip_h"): sprite_group.scale.x = -1 if properties.flip_h else 1
+	if properties.has("is_diving"):
+		if properties.is_diving:
+			sprite_group.rotation = properties.dive_rotation
+		else:
+			sprite_group.rotation = 0
 	
 	var walk_scale = max(prev_walk_scale - 0.1, 0.0)
 	if properties.has("walk_scale"): walk_scale = properties.walk_scale

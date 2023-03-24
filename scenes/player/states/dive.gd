@@ -7,8 +7,8 @@ func _enter_state(from: String):
 	player.can_dive = false
 
 func _process_state(delta):
-#	if player.is_on_floor():
-#		change_state("Idle")
+	if player.get_slide_collision_count() > 0 and time_left < Player.DIVE_LENGTH:
+		change_state("Fall")
 	
 	if Input.is_action_just_pressed("jump"):
 		change_state("Jump")
@@ -24,6 +24,7 @@ func _process_state(delta):
 
 func _get_animation_properties():
 	return {
-		"diving": true,
+		"is_diving": true,
+		"dive_rotation": player.get_local_mouse_position().angle() + 0.25 * TAU,
 		"in_air": false
 	}

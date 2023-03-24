@@ -11,7 +11,7 @@ const GRAVITY = 1000
 const GRAVITY_JUMP = 900
 
 const FRICTION = 1.0
-const FRICTION_AIR = 0.7
+const FRICTION_AIR = 0.05
 
 const DIVE_SPEED = 250.0
 const DIVE_LENGTH = 2.0
