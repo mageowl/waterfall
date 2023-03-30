@@ -13,9 +13,10 @@ const GRAVITY_JUMP = 900
 const FRICTION = 1.0
 const FRICTION_AIR = 0.05
 
-const DIVE_SPEED = 250.0
-const DIVE_LENGTH = 2.0
+const DIVE_SPEED = 350.0
+const DIVE_LENGTH = 0.8
 
+@onready var respawn_point = position
 @onready var state_machine: PlayerStateMachine = $States
 @onready var player_sprite = $PlayerSprite
 var can_dive = true

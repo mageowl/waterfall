@@ -27,5 +27,6 @@ func _get_animation_properties():
 	return {
 		"in_air": false,
 		"is_crouching": false,
-		"is_diving": false
+		"is_diving": false,
+		"has_dash": true
 	}

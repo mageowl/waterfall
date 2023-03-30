@@ -25,6 +25,7 @@ func _process_state(delta):
 func _get_animation_properties():
 	return {
 		"is_diving": true,
+		"has_dash": false,
 		"dive_rotation": player.get_local_mouse_position().angle() + 0.25 * TAU,
 		"in_air": false
 	}

@@ -21,7 +21,8 @@ func _process_state(delta):
 		player.velocity.x = Player.SPEED * direction
 
 func _enter_state(from: String):
-	player.velocity.y = -Player.JUMP_VELOCITY
+	if player.velocity.y > 0: player.velocity.y = 0
+	player.velocity.y -= Player.JUMP_VELOCITY
 
 func _get_animation_properties():
 	var result = {

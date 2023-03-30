@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c661rjtxrrivr"]
+[gd_scene load_steps=23 format=3 uid="uid://c661rjtxrrivr"]
 
 [ext_resource type="Script" path="res://scenes/player/sprite/player_sprite.gd" id="1_h0s1f"]
 [ext_resource type="Texture2D" uid="uid://blk72k0g842gb" path="res://scenes/player/sprite/head-outline.png" id="2_yqh41"]
@@ -111,6 +111,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0, -2)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/HeadOutline:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite/Head:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_wbv63"]
 length = 0.001
@@ -162,6 +186,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0, -2)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/HeadOutline:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite/Head:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_q75h4"]
 resource_name = "Walk"
@@ -192,11 +240,41 @@ tracks/1/keys = {
 "values": [-0.523599, 0.523599]
 }
 
+[sub_resource type="Animation" id="Animation_a3rvx"]
+resource_name = "NoDash"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/HeadOutline:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Head:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0nkb0"]
 _data = {
 "Air": SubResource("Animation_5j3jb"),
 "Crouch": SubResource("Animation_4pc8m"),
 "Idle": SubResource("Animation_5b54x"),
+"NoDash": SubResource("Animation_a3rvx"),
 "RESET": SubResource("Animation_wbv63"),
 "Walk": SubResource("Animation_q75h4")
 }
@@ -210,6 +288,10 @@ animation = &"Crouch"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_lxw7v"]
 filter_enabled = true
 filters = ["Sprite/Head:position", "Sprite/HeadOutline:position"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_td8j8"]
+filter_enabled = true
+filters = ["Sprite/Head:frame", "Sprite/HeadOutline:frame"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r6wxh"]
 animation = &"Idle"
@@ -228,6 +310,9 @@ input_1/name = "no"
 input_1/auto_advance = false
 input_1/reset = true
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ubimd"]
+animation = &"NoDash"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yb0yg"]
 animation = &"Walk"
 
@@ -235,23 +320,27 @@ animation = &"Walk"
 filters = ["Sprite/LegL:rotation", "Sprite/LegR:rotation"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mcn1e"]
-graph_offset = Vector2(-91.5546, -52.3047)
+graph_offset = Vector2(-64.4933, -37.6752)
 nodes/Air/node = SubResource("AnimationNodeAnimation_5gl6t")
 nodes/Air/position = Vector2(720, 0)
 nodes/Crouch/node = SubResource("AnimationNodeAnimation_g62k4")
 nodes/Crouch/position = Vector2(420, 340)
 nodes/CrouchBlend/node = SubResource("AnimationNodeBlend2_lxw7v")
 nodes/CrouchBlend/position = Vector2(720, 180)
+nodes/HasDash/node = SubResource("AnimationNodeBlend2_td8j8")
+nodes/HasDash/position = Vector2(1350, 20)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_r6wxh")
 nodes/Idle/position = Vector2(60, 160)
 nodes/InAir/node = SubResource("AnimationNodeTransition_3i8u0")
 nodes/InAir/position = Vector2(980, 10)
+nodes/NoDash/node = SubResource("AnimationNodeAnimation_ubimd")
+nodes/NoDash/position = Vector2(1149.51, 146.657)
 nodes/Walk/node = SubResource("AnimationNodeAnimation_yb0yg")
 nodes/Walk/position = Vector2(60, 280)
 nodes/WalkBlend/node = SubResource("AnimationNodeBlend2_etjnx")
 nodes/WalkBlend/position = Vector2(420, 140)
-nodes/output/position = Vector2(1240, 50)
-node_connections = [&"output", 0, &"InAir", &"CrouchBlend", 0, &"WalkBlend", &"CrouchBlend", 1, &"Crouch", &"InAir", 0, &"Air", &"InAir", 1, &"CrouchBlend", &"WalkBlend", 0, &"Idle", &"WalkBlend", 1, &"Walk"]
+nodes/output/position = Vector2(1620, 20)
+node_connections = [&"output", 0, &"HasDash", &"CrouchBlend", 0, &"WalkBlend", &"CrouchBlend", 1, &"Crouch", &"InAir", 0, &"Air", &"InAir", 1, &"CrouchBlend", &"WalkBlend", 0, &"Idle", &"WalkBlend", 1, &"Walk", &"HasDash", 0, &"InAir", &"HasDash", 1, &"NoDash"]
 
 [node name="PlayerSprite" type="Node2D"]
 script = ExtResource("1_h0s1f")
@@ -262,6 +351,7 @@ position = Vector2(0, -4)
 [node name="HeadOutline" type="Sprite2D" parent="Sprite"]
 position = Vector2(0, -2)
 texture = ExtResource("2_yqh41")
+hframes = 2
 
 [node name="LegR" type="Sprite2D" parent="Sprite"]
 position = Vector2(1.5, 1.5)
@@ -276,6 +366,7 @@ offset = Vector2(0, 1.5)
 [node name="Head" type="Sprite2D" parent="Sprite"]
 position = Vector2(0, -2)
 texture = ExtResource("4_qg2qf")
+hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -287,6 +378,7 @@ tree_root = SubResource("AnimationNodeBlendTree_mcn1e")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/CrouchBlend/blend_amount = 0.0
+parameters/HasDash/blend_amount = 0.0
 parameters/InAir/current_state = "no"
 parameters/InAir/transition_request = ""
 parameters/InAir/current_index = 1
