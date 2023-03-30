@@ -1,9 +1,32 @@
-[gd_scene load_steps=23 format=3 uid="uid://c661rjtxrrivr"]
+[gd_scene load_steps=28 format=3 uid="uid://c661rjtxrrivr"]
 
 [ext_resource type="Script" path="res://scenes/player/sprite/player_sprite.gd" id="1_h0s1f"]
+[ext_resource type="Texture2D" uid="uid://85duh2epvkyl" path="res://scenes/player/sprite/dive_particle.png" id="2_bu8p2"]
 [ext_resource type="Texture2D" uid="uid://blk72k0g842gb" path="res://scenes/player/sprite/head-outline.png" id="2_yqh41"]
 [ext_resource type="Texture2D" uid="uid://dvaauwl0ots8p" path="res://scenes/player/sprite/leg.png" id="3_nt4rs"]
 [ext_resource type="Texture2D" uid="uid://b4ygkgesra4cf" path="res://scenes/player/sprite/head.png" id="4_qg2qf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b8m21"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_gcdnc"]
+_data = [Vector2(0, 0.0090909), 0.0, 18.525, 0, 0, Vector2(0.149798, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.95257, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_afpbb"]
+curve = SubResource("Curve_gcdnc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_02b52"]
+emission_shape = 1
+emission_sphere_radius = 6.0
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+scale_min = 0.8
+scale_curve = SubResource("CurveTexture_afpbb")
 
 [sub_resource type="Animation" id="Animation_5j3jb"]
 resource_name = "Air"
@@ -136,6 +159,35 @@ tracks/5/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_a3rvx"]
+resource_name = "NoDash"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/HeadOutline:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Head:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="Animation" id="Animation_wbv63"]
 length = 0.001
 tracks/0/type = "value"
@@ -240,35 +292,6 @@ tracks/1/keys = {
 "values": [-0.523599, 0.523599]
 }
 
-[sub_resource type="Animation" id="Animation_a3rvx"]
-resource_name = "NoDash"
-length = 0.001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/HeadOutline:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/Head:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0nkb0"]
 _data = {
 "Air": SubResource("Animation_5j3jb"),
@@ -340,10 +363,18 @@ nodes/Walk/position = Vector2(60, 280)
 nodes/WalkBlend/node = SubResource("AnimationNodeBlend2_etjnx")
 nodes/WalkBlend/position = Vector2(420, 140)
 nodes/output/position = Vector2(1620, 20)
-node_connections = [&"output", 0, &"HasDash", &"CrouchBlend", 0, &"WalkBlend", &"CrouchBlend", 1, &"Crouch", &"InAir", 0, &"Air", &"InAir", 1, &"CrouchBlend", &"WalkBlend", 0, &"Idle", &"WalkBlend", 1, &"Walk", &"HasDash", 0, &"InAir", &"HasDash", 1, &"NoDash"]
+node_connections = [&"output", 0, &"HasDash", &"CrouchBlend", 0, &"WalkBlend", &"CrouchBlend", 1, &"Crouch", &"HasDash", 0, &"InAir", &"HasDash", 1, &"NoDash", &"InAir", 0, &"Air", &"InAir", 1, &"CrouchBlend", &"WalkBlend", 0, &"Idle", &"WalkBlend", 1, &"Walk"]
 
 [node name="PlayerSprite" type="Node2D"]
 script = ExtResource("1_h0s1f")
+
+[node name="DiveParticles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_b8m21")
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_02b52")
+texture = ExtResource("2_bu8p2")
+lifetime = 0.4
 
 [node name="Sprite" type="CanvasGroup" parent="."]
 position = Vector2(0, -4)

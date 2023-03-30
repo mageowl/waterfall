@@ -7,6 +7,7 @@ enum TRANSITION_BOOL {
 
 @onready var animation_tree = $AnimationTree
 @onready var sprite_group = $Sprite
+@onready var dive_particles = $DiveParticles
 
 var prev_walk_scale := 0.0
 var prev_crouch = false
@@ -23,6 +24,8 @@ func animate(properties: Dictionary):
 		tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 		prev_crouch = properties.is_crouching
 	if properties.has("is_diving"):
+		dive_particles.emitting = properties.is_diving
+		
 		var target_rotation = 0
 		if properties.is_diving:
 			target_rotation = properties.dive_rotation

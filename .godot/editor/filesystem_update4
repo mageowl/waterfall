@@ -1,11 +1,5 @@
 res://scenes/world/world.tscn
 res://scenes/world/tileset.tres
-res://scenes/player/player.gd
-res://scenes/player/player.tscn
-res://scenes/anchor/anchor.tscn
-res://scenes/anchor/anchor.gd
 res://scenes/player/sprite/player_sprite.tscn
+res://scenes/player/player.tscn
 res://scenes/player/sprite/player_sprite.gd
-res://scenes/player/states/dive.gd
-res://scenes/player/states/idle.gd
-res://scenes/player/states/jump.gd
