@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxvonor4oolcq"]
+[gd_scene load_steps=12 format=3 uid="uid://bxvonor4oolcq"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_b783s"]
 [ext_resource type="PackedScene" uid="uid://c661rjtxrrivr" path="res://scenes/player/sprite/player_sprite.tscn" id="1_guivv"]
@@ -9,17 +9,19 @@
 [ext_resource type="Script" path="res://scenes/player/states/jump.gd" id="7_rw6bk"]
 [ext_resource type="Script" path="res://scenes/player/states/crouch.gd" id="8_6xqqa"]
 [ext_resource type="Script" path="res://scenes/player/states/dive.gd" id="9_4j3xy"]
+[ext_resource type="Script" path="res://scenes/player/states/dead.gd" id="10_swa0n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ckxlp"]
 radius = 3.0
 height = 7.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 3
 script = ExtResource("1_b783s")
 
 [node name="PlayerSprite" parent="." instance=ExtResource("1_guivv")]
 
-[node name="NormalCollisionShape" type="CollisionShape2D" parent="."]
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.5)
 shape = SubResource("CapsuleShape2D_ckxlp")
 debug_color = Color(0.0117647, 0.509804, 0.243137, 0.419608)
@@ -44,6 +46,9 @@ script = ExtResource("8_6xqqa")
 
 [node name="Dive" type="Node" parent="States"]
 script = ExtResource("9_4j3xy")
+
+[node name="Dead" type="Node" parent="States"]
+script = ExtResource("10_swa0n")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(6, 6)

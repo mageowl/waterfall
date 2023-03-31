@@ -343,7 +343,6 @@ animation = &"Walk"
 filters = ["Sprite/LegL:rotation", "Sprite/LegR:rotation"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mcn1e"]
-graph_offset = Vector2(-64.4933, -37.6752)
 nodes/Air/node = SubResource("AnimationNodeAnimation_5gl6t")
 nodes/Air/position = Vector2(720, 0)
 nodes/Crouch/node = SubResource("AnimationNodeAnimation_g62k4")
@@ -370,6 +369,7 @@ script = ExtResource("1_h0s1f")
 
 [node name="DiveParticles" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_b8m21")
+position = Vector2(0, -4)
 emitting = false
 amount = 30
 process_material = SubResource("ParticleProcessMaterial_02b52")

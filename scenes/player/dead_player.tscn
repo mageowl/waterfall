@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://drqqae7nkmy7b"]
+
+[ext_resource type="PackedScene" uid="uid://c661rjtxrrivr" path="res://scenes/player/sprite/player_sprite.tscn" id="1_88eqr"]
+[ext_resource type="Script" path="res://scenes/player/dead_player.gd" id="1_svnbw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ragnn"]
+radius = 0.0
+
+[node name="DeadPlayer" type="CharacterBody2D"]
+script = ExtResource("1_svnbw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_ragnn")
+disabled = true
+debug_color = Color(0, 0, 0, 0.419608)
+
+[node name="PlayerSprite" parent="." instance=ExtResource("1_88eqr")]

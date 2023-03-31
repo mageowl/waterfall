@@ -27,4 +27,15 @@ func _ready():
 func _physics_process(delta: float):
 	state_machine.process_state(delta)
 	player_sprite.animate(state_machine.get_animation_properties())
+	
 	move_and_slide()
+	
+	if get_slide_collision_count() > 0:
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			var collider : RID = collision.get_collider_rid()
+			if PhysicsServer2D.body_get_collision_layer(collider) == 2 and not state_machine.current_state is PlayerDeadState:
+				get_dead()
+
+func get_dead():
+	state_machine.change_state("Dead")
