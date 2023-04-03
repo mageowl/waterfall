@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -400.0
 @onready var player_sprite: PlayerSprite = $PlayerSprite
 
 func _ready():
-	velocity = Vector2(0, -Player.JUMP_VELOCITY).rotated(TAU * randf_range(-0.25, 0.25))
+	velocity = Vector2(0, -Player.JUMP_VELOCITY).rotated(TAU * randf_range(-0.125, 0.125))
 
 func _physics_process(delta):
 	velocity.y += Player.GRAVITY * delta

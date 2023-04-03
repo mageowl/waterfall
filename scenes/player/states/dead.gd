@@ -11,6 +11,7 @@ func _enter_state(state: String):
 	dead_player_instance.position = player.position
 	player.get_parent().add_child(dead_player_instance)
 	player.visible = false
+	player.velocity = Vector2.ZERO
 
 func _process_state(delta):
 	time_left -= delta

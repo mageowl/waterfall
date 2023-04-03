@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxvonor4oolcq"]
+[gd_scene load_steps=13 format=3 uid="uid://bxvonor4oolcq"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_b783s"]
 [ext_resource type="PackedScene" uid="uid://c661rjtxrrivr" path="res://scenes/player/sprite/player_sprite.tscn" id="1_guivv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scenes/player/states/crouch.gd" id="8_6xqqa"]
 [ext_resource type="Script" path="res://scenes/player/states/dive.gd" id="9_4j3xy"]
 [ext_resource type="Script" path="res://scenes/player/states/dead.gd" id="10_swa0n"]
+[ext_resource type="Texture2D" uid="uid://djp24yqfquuwi" path="res://scenes/!global/light.tres" id="11_s4m6t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ckxlp"]
 radius = 3.0
@@ -25,6 +26,16 @@ script = ExtResource("1_b783s")
 position = Vector2(0, -3.5)
 shape = SubResource("CapsuleShape2D_ckxlp")
 debug_color = Color(0.0117647, 0.509804, 0.243137, 0.419608)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.4
+range_item_cull_mask = 2
+texture = ExtResource("11_s4m6t")
+
+[node name="PointLightPlayer" type="PointLight2D" parent="."]
+energy = 0.08
+range_item_cull_mask = 4
+texture = ExtResource("11_s4m6t")
 
 [node name="States" type="Node" parent="."]
 script = ExtResource("3_yy862")

@@ -1,6 +1,8 @@
-res://scenes/player/player.tscn
-res://scenes/world/tileset.tres
 res://scenes/world/world.tscn
-res://scenes/anchor/anchor.tscn
+res://scenes/!global/light.tres
+res://scenes/world/tileset.tres
 res://scenes/player/sprite/player_sprite.tscn
-res://scenes/player/dead_player.tscn
+res://scenes/player/player.tscn
+res://scenes/anchor/anchor.tscn
+res://scenes/anchor/anchor.gd
+res://scenes/player/dead_player.gd
