@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=30 format=3 uid="uid://bkgvuqbkay4tm"]
+[gd_resource type="TileSet" load_steps=31 format=3 uid="uid://bkgvuqbkay4tm"]
 
 [ext_resource type="Texture2D" uid="uid://hwp8sjmhsx6b" path="res://scenes/world/grass_tileset.png" id="1_bpop8"]
 [ext_resource type="Texture2D" uid="uid://b8bqaun6kstmp" path="res://scenes/world/foliage_tileset.png" id="2_ql4ub"]
 [ext_resource type="PackedScene" uid="uid://dymwq0qfowo6v" path="res://scenes/anchor/anchor.tscn" id="3_rlq28"]
+[ext_resource type="PackedScene" uid="uid://1fisw3eombfq" path="res://scenes/spring/spring.tscn" id="4_0fkt7"]
 [ext_resource type="Texture2D" uid="uid://b48124ktaykqj" path="res://scenes/world/crystal_tileset.png" id="4_imsax"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tdu3v"]
@@ -721,6 +722,7 @@ texture = ExtResource("2_ql4ub")
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_nj6fn"]
 resource_name = "Objects"
 scenes/1/scene = ExtResource("3_rlq28")
+scenes/2/scene = ExtResource("4_0fkt7")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tyrlm"]
 texture = ExtResource("4_imsax")

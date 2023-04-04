@@ -1,12 +1,15 @@
+CanvasGroup
+Node2D
+AnimationPlayer
+CollisionShape2D
+Area2D
 PointLight2D
 ColorRect
 LightOccluder2D
 DirectionalLight2D
-CollisionShape2D
 PlayerSprite
 CharacterBody2D
 PlayerDeadState
 GPUParticles2D
-Area2D
 PlayerDiveState
 PlayerCrouchState

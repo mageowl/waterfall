@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 const SPEED = 150.0
 const CROUCH_SPEED = 50.0
-const JUMP_VELOCITY = 300.0
+const JUMP_VELOCITY = 250.0
 
 const CYOTE_TIME = 6
 const JUMP_BUFFER = 8
@@ -19,6 +19,7 @@ const DIVE_LENGTH = 0.8
 @onready var respawn_point = position
 @onready var state_machine: PlayerStateMachine = $States
 @onready var player_sprite = $PlayerSprite
+@onready var camera = $Camera2D
 var can_dive = true
 
 func _ready():

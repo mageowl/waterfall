@@ -1,0 +1,149 @@
+[gd_scene load_steps=8 format=3 uid="uid://1fisw3eombfq"]
+
+[ext_resource type="Script" path="res://scenes/spring/spring.gd" id="1_02snx"]
+[ext_resource type="Texture2D" uid="uid://cbx8458aq0s45" path="res://scenes/spring/spring.png" id="1_b1myj"]
+[ext_resource type="Texture2D" uid="uid://b7nq2gm1ettau" path="res://scenes/spring/coil.png" id="2_kdawm"]
+
+[sub_resource type="Animation" id="Animation_ie1ao"]
+resource_name = "Bounce"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(7, -0.25, 0, 0.1, -5.56927, 0, -0.3, -3.54933, 0.46606, 0.263324, 7, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Coil:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.125, -0.25, 0, 0.1, 0.657487, 1, -0.222657, 0.641018, 0.2, 0.24861, 0.125, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/Spring:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.1, -0.0192688, 0.500419, -0.2, 0.00399226, 0.125, 0.010425, 1, -0.075, -0.00140077, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.15, 0.5, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/Spring:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.1, -0.00282961, 1.99496, -0.0937571, -0.00636292, 0.106243, 0.00864685, 1, -0.075, -0.0128368, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.15, 0.5, 1)
+}
+
+[sub_resource type="Animation" id="Animation_ecgck"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(7, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Coil:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/Coil:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.125, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/Spring:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/Spring:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_txrua"]
+_data = {
+"Bounce": SubResource("Animation_ie1ao"),
+"RESET": SubResource("Animation_ecgck")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n10vs"]
+size = Vector2(12, 3)
+
+[node name="Spring" type="Area2D"]
+script = ExtResource("1_02snx")
+
+[node name="Sprite" type="CanvasGroup" parent="."]
+position = Vector2(0, 7)
+
+[node name="Spring" type="Sprite2D" parent="Sprite"]
+position = Vector2(0, -0.5)
+texture = ExtResource("1_b1myj")
+
+[node name="Coil" type="Sprite2D" parent="Sprite"]
+z_index = -1
+position = Vector2(0, 2)
+scale = Vector2(1, 0.125)
+texture = ExtResource("2_kdawm")
+centered = false
+offset = Vector2(-3, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_txrua")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_n10vs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

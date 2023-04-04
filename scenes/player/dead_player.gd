@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -400.0
 
 func _ready():
 	velocity = Vector2(0, -Player.JUMP_VELOCITY).rotated(TAU * randf_range(-0.125, 0.125))
+	player_sprite.animate({"in_air": true})
 
 func _physics_process(delta):
 	velocity.y += Player.GRAVITY * delta
