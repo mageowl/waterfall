@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://1fisw3eombfq"]
+[gd_scene load_steps=9 format=3 uid="uid://1fisw3eombfq"]
 
 [ext_resource type="Script" path="res://scenes/spring/spring.gd" id="1_02snx"]
 [ext_resource type="Texture2D" uid="uid://cbx8458aq0s45" path="res://scenes/spring/spring.png" id="1_b1myj"]
+[ext_resource type="Texture2D" uid="uid://cahcq1m8xl0ag" path="res://scenes/spring/spring_outline.png" id="2_52n8s"]
 [ext_resource type="Texture2D" uid="uid://b7nq2gm1ettau" path="res://scenes/spring/coil.png" id="2_kdawm"]
 
 [sub_resource type="Animation" id="Animation_ie1ao"]
@@ -123,6 +124,11 @@ script = ExtResource("1_02snx")
 
 [node name="Sprite" type="CanvasGroup" parent="."]
 position = Vector2(0, 7)
+
+[node name="SpringOutline" type="Sprite2D" parent="Sprite"]
+z_index = -2
+position = Vector2(0, -0.5)
+texture = ExtResource("2_52n8s")
 
 [node name="Spring" type="Sprite2D" parent="Sprite"]
 position = Vector2(0, -0.5)

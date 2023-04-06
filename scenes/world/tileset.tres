@@ -353,6 +353,11 @@ texture = ExtResource("1_bpop8")
 7:0/0/terrains_peering_bit/bottom_right_corner = 0
 7:0/0/terrains_peering_bit/bottom_side = 0
 7:0/0/terrains_peering_bit/bottom_left_corner = 0
+4:3/0 = 0
+4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:3/0/physics_layer_0/angular_velocity = 0.0
+4:3/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+4:3/0/physics_layer_1/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q12td"]
 resource_name = "foliage"
@@ -1012,6 +1017,11 @@ texture = ExtResource("4_imsax")
 4:1/0/terrains_peering_bit/left_side = 2
 4:1/0/terrains_peering_bit/top_left_corner = 2
 4:1/0/terrains_peering_bit/top_side = 2
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+0:3/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_1/angular_velocity = 0.0
 
 [resource]
 occlusion_layer_0/light_mask = 1
