@@ -1,10 +1,14 @@
+ColorRect
+CanvasLayer
+Label
+Node
+AnimationPlayer
+Area2D
+StaticBody2D
 CanvasGroup
 Node2D
-AnimationPlayer
 CollisionShape2D
-Area2D
 PointLight2D
-ColorRect
 LightOccluder2D
 DirectionalLight2D
 PlayerSprite

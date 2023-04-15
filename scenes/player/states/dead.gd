@@ -14,6 +14,8 @@ func _enter_state(state: String):
 	player.velocity = Vector2.ZERO
 
 func _process_state(delta):
+	player.velocity = Vector2.ZERO
+	
 	time_left -= delta
 	
 	if time_left <= 0:

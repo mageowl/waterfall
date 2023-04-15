@@ -21,6 +21,7 @@ const DIVE_LENGTH = 0.8
 @onready var player_sprite = $PlayerSprite
 @onready var camera = $Camera2D
 var can_dive = true
+var invincibility = 0 
 
 func _ready():
 	state_machine.init_states(self)
@@ -31,11 +32,14 @@ func _physics_process(delta: float):
 	
 	move_and_slide()
 	
+	if invincibility > 0:
+		invincibility -= 1
+
 	if get_slide_collision_count() > 0:
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
 			var collider : RID = collision.get_collider_rid()
-			if PhysicsServer2D.body_get_collision_layer(collider) == 2 and not state_machine.current_state is PlayerDeadState:
+			if PhysicsServer2D.body_get_collision_layer(collider) == 2 and not state_machine.current_state is PlayerDeadState and invincibility <= 0:
 				get_dead()
 
 func get_dead():
